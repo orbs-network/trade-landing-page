@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121214" />
+    <meta name="description" content="Institutional on-chain trading powered by Orbs. Access spot liquidity, advanced orders, and perpetual futures." />
+    <title>Trade with Orbs — Spot & Perps</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/orbs-mark.svg" />
+    <link rel="preload" href="/assets/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      (() => {
+        const theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#121214' : '#f6f6f6';
+      })();
+    </script>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/theme.js"></script>
+    <script type="module" src="/src/background.js"></script>
+  </head>
+  <body>
+    <div class="background-field" aria-hidden="true">
+      <div class="background-dots">
+        <div class="background-dots-small"></div>
+        <div class="background-dots-large"></div>
+      </div>
+      <canvas class="background-facets"></canvas>
+    </div>
+    <a class="skip-link" href="#markets">Skip to trading</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Orbs trading home">
+          <img src="/assets/orbs-mark.svg" width="34" height="34" alt="" />
+          <span>ORBS</span>
+        </a>
+        <span class="header-label">TRADE</span>
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme" hidden>
+          <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13.3A9 9 0 0 1 10.7 3.1a9 9 0 1 0 10.2 10.2Z"/></svg>
+        </button>
+        <a class="about-link" href="https://orbs-website-v2.vercel.app/" target="_blank" rel="noopener noreferrer">Orbs website <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main>
+        <div class="intro">
+          <p class="eyebrow">INSTITUTIONAL TRADING</p>
+          <h1>On-chain <span>execution.</span></h1>
+        </div>
+
+        <div class="markets" id="markets">
+          <section class="market market-spot" aria-labelledby="spot-title">
+            <a class="market-link" href="https://swap.orbs.network/" target="_blank" rel="noopener noreferrer" aria-labelledby="spot-title spot-action" aria-describedby="spot-description">
+              <div class="market-heading">
+                <h2 id="spot-title">Spot</h2>
+                <p id="spot-description">Aggregated liquidity and advanced order execution.</p>
+              </div>
+              <div class="market-art spot-art" aria-hidden="true">
+                <svg viewBox="0 0 500 210" fill="none">
+                  <defs>
+                    <linearGradient id="spot-line" x1="130" y1="30" x2="370" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="var(--periwinkle)"/><stop offset="1" stop-color="var(--cyan)"/></linearGradient>
+                    <radialGradient id="spot-fill"><stop stop-color="var(--art-halo)" stop-opacity=".5"/><stop offset="1" stop-color="var(--background)" stop-opacity="0"/></radialGradient>
+                  </defs>
+                  <ellipse cx="250" cy="105" rx="184" ry="97" fill="url(#spot-fill)"/>
+                  <ellipse class="orbit" cx="250" cy="105" rx="151" ry="75" stroke="var(--periwinkle)" stroke-opacity=".13" transform="rotate(-19 250 105)"/>
+                  <ellipse cx="250" cy="105" rx="199" ry="87" stroke="var(--periwinkle)" stroke-opacity=".09" transform="rotate(-19 250 105)"/>
+                  <path d="M145 67H325L344 86M344 67V86H325M355 143H175L156 124M156 143V124H175" stroke="url(#spot-line)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="169" cy="109" r="40" fill="var(--coin-surface)" stroke="var(--periwinkle)" stroke-opacity=".55"/>
+                  <circle cx="169" cy="109" r="33" stroke="var(--periwinkle)" stroke-opacity=".15"/>
+                  <path d="M169 84L155 108L169 116L183 108L169 84Z" stroke="var(--art-blue)" stroke-width="1.3"/>
+                  <path d="M155 114L169 134L183 114L169 122L155 114Z" fill="var(--periwinkle)" fill-opacity=".7"/>
+                  <path d="M169 84V116M155 108L169 101L183 108" stroke="var(--art-blue)" stroke-opacity=".65"/>
+                  <circle cx="331" cy="109" r="40" fill="var(--coin-surface)" stroke="var(--art-cyan)" stroke-opacity=".5"/>
+                  <circle cx="331" cy="109" r="33" stroke="var(--art-cyan)" stroke-opacity=".13"/>
+                  <path d="M340 95C337 90 322 90 322 99C322 108 340 104 340 114C340 123 325 125 321 118M331 86V129" stroke="var(--art-cyan)" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="88" cy="119" r="3" fill="var(--periwinkle)"/>
+                  <circle cx="398" cy="60" r="3" fill="var(--art-cyan)"/>
+                </svg>
+              </div>
+                <div class="market-action"><span id="spot-action">Trade Spot</span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            </a>
+          </section>
+
+          <section class="market market-perps" aria-labelledby="perps-title">
+            <a class="market-link" href="https://perps.orbs.network/" target="_blank" rel="noopener noreferrer" aria-labelledby="perps-title perps-action" aria-describedby="perps-description">
+              <div class="market-heading">
+                <h2 id="perps-title">Perps</h2>
+                <p id="perps-description">Long and short exposure through perpetual futures.</p>
+              </div>
+              <div class="market-art perps-art" aria-hidden="true">
+                <svg viewBox="0 0 500 210" fill="none">
+                  <defs><linearGradient id="chart-fill" x1="250" y1="35" x2="250" y2="183" gradientUnits="userSpaceOnUse"><stop stop-color="var(--pink)" stop-opacity=".12"/><stop offset="1" stop-color="var(--pink)" stop-opacity="0"/></linearGradient></defs>
+                  <path d="M80 55H420M80 105H420M80 155H420M125 30V180M205 30V180M285 30V180M365 30V180" stroke="var(--pink)" stroke-opacity=".075" stroke-dasharray="3 5"/>
+                  <path d="M86 155L126 144L168 155L209 115L249 129L291 90L332 99L374 49L414 37V185H86Z" fill="url(#chart-fill)"/>
+                  <path d="M86 155L126 144L168 155L209 115L249 129L291 90L332 99L374 49L414 37" stroke="var(--pink)" stroke-opacity=".4" stroke-width="1.25"/>
+                  <g stroke="var(--pink)" stroke-width="1.5">
+                    <path d="M125 120V167M167 128V174M209 85V142M251 103V150M293 55V120M335 71V123M377 21V83"/>
+                    <rect x="117" y="133" width="16" height="23" fill="var(--art-pink-muted)"/><rect x="159" y="140" width="16" height="18" fill="var(--coin-surface)"/>
+                    <rect x="201" y="101" width="16" height="28" fill="var(--art-pink-fill)"/><rect x="243" y="116" width="16" height="21" fill="var(--coin-surface)"/>
+                    <rect x="285" y="75" width="16" height="31" fill="var(--art-pink-fill)"/><rect x="327" y="85" width="16" height="23" fill="var(--coin-surface)"/>
+                    <rect x="369" y="39" width="16" height="30" fill="var(--pink)"/>
+                  </g>
+                  <circle cx="414" cy="37" r="3" fill="var(--pink)"/>
+                </svg>
+              </div>
+                <div class="market-action"><span id="perps-action">Trade Perps</span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            </a>
+          </section>
+        </div>
+      </main>
+
+    </div>
+  </body>
+</html>
