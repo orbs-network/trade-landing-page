@@ -9,6 +9,8 @@ npm install
 npm run dev
 ```
 
+The local development server runs at http://localhost:3005. Production preview uses the same port.
+
 ## Production
 
 ```sh
@@ -19,6 +21,8 @@ npm run preview
 Deploy the generated `dist/` directory to any static host. No environment variables or backend are required. A small script follows the system theme on every page load and responds to system theme changes. The toggle overrides the theme for the current visit only.
 
 Brand colors, the original Orbs mark, and locally hosted Montserrat font were sourced from https://orbs-website-v2.vercel.app/. Primary destination URLs are defined directly in `index.html`.
+
+The favicon is the original reference site's `favicon.ico`. The branded 1200 × 630 social image is `public/assets/orbs-social.png`, referenced by Open Graph and X card metadata. Once the public domain is finalized, replace the two root-relative social image URLs in `index.html` with absolute HTTPS URLs for sharing crawlers.
 
 ## Vercel deployment
 
