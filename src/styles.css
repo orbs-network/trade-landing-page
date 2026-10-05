@@ -20,7 +20,7 @@
   --card-start: #1e1e20;
   --card-end: #121214;
   --action-border: #f6f6f621;
-  --action-background: var(--action-background);
+  --action-background: #f6f6f60a;
   --coin-surface: #17191f;
   --art-halo: #31375d;
   --art-blue: #95a1ed;
@@ -60,7 +60,7 @@
 
 * { box-sizing: border-box; }
 body { margin: 0; padding-bottom: 64px; min-width: 280px; min-height: 100svh; position: relative; isolation: isolate; }
-.background-field { position: absolute; inset: 100px 0 0; z-index: -1; overflow: hidden; pointer-events: none; mask-image: linear-gradient(#000 0%, #000 70%, transparent 100%); }
+.background-field { position: absolute; inset: 84px 0 0; z-index: -1; overflow: hidden; pointer-events: none; mask-image: linear-gradient(#000 0%, #000 70%, transparent 100%); }
 .background-dots, .background-dots-small, .background-dots-large, .background-facets { position: absolute; inset: 0; width: 100%; height: 100%; }
 .background-dots { opacity: .3; mask-image: radial-gradient(circle var(--facet-hole, 0px) at var(--facet-x, 50%) var(--facet-y, 50%), transparent 0%, transparent 55%, #000 100%); }
 .background-dots-small, .background-dots-large { background-color: var(--foreground); mask-repeat: repeat; }
@@ -74,7 +74,7 @@ a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: #7a89e93
 a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 6px; }
 ::selection { background: var(--periwinkle); color: var(--background); }
 .page-shell { width: min(1184px, calc(100% - 96px)); margin: 0 auto; }
-.site-header { display: flex; align-items: center; min-height: 100px; border-bottom: 1px solid var(--border); }
+.site-header { display: flex; align-items: center; min-height: 84px; border-bottom: 1px solid var(--border); }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 25px; letter-spacing: .07em; }
 .brand img { display: block; }
 .header-label { margin-left: 26px; padding: 4px 0 4px 25px; border-left: 1px solid var(--border); font-size: 11px; letter-spacing: .16em; color: var(--muted); }
@@ -86,23 +86,23 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
 [data-theme="light"] .theme-moon { display: block; }
 .about-link span { font-size: 18px; }
 .about-link:hover { color: var(--foreground); }
-.intro { text-align: center; padding: 73px 0 62px; }
+.intro { text-align: center; padding: clamp(32px, 5vh, 48px) 0 clamp(28px, 4.2vh, 40px); }
 .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: .18em; line-height: 1.5; }
-.intro .eyebrow { color: var(--muted); margin: 0 0 23px; display: inline-flex; align-items: center; gap: 15px; }
+.intro .eyebrow { color: var(--muted); margin: 0 0 18px; display: inline-flex; align-items: center; gap: 15px; }
 .intro .eyebrow::before, .intro .eyebrow::after { content: ''; height: 1px; width: 26px; background: var(--periwinkle); opacity: .65; }
-h1 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 400; letter-spacing: -.055em; line-height: 1.15; margin: 0; text-wrap: balance; color: var(--muted); }
+h1 { font-size: clamp(40px, 4.1vw, 56px); font-weight: 400; letter-spacing: -.055em; line-height: 1.15; margin: 0; text-wrap: balance; color: var(--muted); }
 h1 span { color: var(--foreground); }
 .markets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; scroll-margin-top: 24px; }
 .market { --accent: var(--periwinkle); --accent-rgb: var(--spot-rgb); border: 1px solid var(--border); border-radius: 8px; position: relative; background: linear-gradient(145deg, var(--card-start), var(--card-end)); isolation: isolate; box-shadow: 0 12px 32px #00000014; transition: border-color 220ms ease; }
 .market-perps { --accent: var(--pink); --accent-rgb: var(--perps-rgb); }
 .market::before { position: absolute; content: ''; z-index: -1; inset: 0; border-radius: inherit; background: radial-gradient(ellipse at 85% 50%, rgba(var(--accent-rgb), .095), transparent 70%); pointer-events: none; }
 .market::after { content: ''; position: absolute; left: 28px; right: 28px; top: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), .65), transparent); pointer-events: none; }
-.market-link { display: flex; flex-direction: column; height: 100%; padding: 35px 35px 28px; border-radius: inherit; }
+.market-link { display: flex; flex-direction: column; height: 100%; padding: 28px 32px 24px; border-radius: inherit; }
 .market-link:focus-visible { outline-offset: 5px; }
-.market-heading { min-height: 99px; }
-h2 { font-size: 42px; letter-spacing: -.045em; font-weight: 400; margin: 0 0 14px; line-height: 1.1; }
+.market-heading { min-height: 88px; }
+h2 { font-size: 38px; letter-spacing: -.045em; font-weight: 400; margin: 0 0 12px; line-height: 1.1; }
 .market-heading p { font-size: 14px; line-height: 1.75; color: var(--muted); margin: 0; max-width: 360px; text-wrap: pretty; }
-.market-art { height: 226px; margin: 14px -35px 23px; display: flex; justify-content: center; align-items: center; position: relative; }
+.market-art { height: clamp(150px, 21vh, 190px); margin: 10px -32px 18px; display: flex; justify-content: center; align-items: center; position: relative; }
 .market-art::before { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(var(--accent-rgb), .055) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--accent-rgb), .055) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse at center, #000, transparent 67%); }
 .market-art svg { display: block; width: 100%; max-width: 540px; height: 100%; }
 .market-action { min-height: 53px; padding: 0 19px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--action-border); border-radius: 3px; background: var(--action-background); color: var(--foreground); font-size: 13px; letter-spacing: .015em; font-weight: 500; margin-top: auto; transition: background-color 180ms ease, border-color 180ms ease; }
@@ -118,10 +118,9 @@ h2 { font-size: 42px; letter-spacing: -.045em; font-weight: 400; margin: 0 0 14p
 .skip-link:focus { transform: translateY(0); }
 @media (min-width: 1600px) {
   .page-shell { width: min(1280px, calc(100% - 128px)); }
-  .intro { padding-top: 86px; padding-bottom: 70px; }
-  .market-link { padding: 40px 40px 32px; }
+  .market-link { padding-inline: 36px; }
   .market-heading p { font-size: 15px; max-width: 395px; }
-  .market-art { height: 244px; margin-inline: -40px; }
+  .market-art { margin-inline: -36px; }
 }
 @media (max-width: 900px) {
   .page-shell { width: calc(100% - 48px); }
